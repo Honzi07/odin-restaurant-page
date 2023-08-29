@@ -3,7 +3,7 @@ import { content, createHTMLelement } from '../../index.js';
 export function createHeader() {
   const header = document.createElement('header');
   const nav = document.createElement('nav');
-  const h1 = createHTMLelement('h1', undefined, 'Gummy Bear');
+  const h1 = createHTMLelement('h1', undefined, 'Rainbow Bear Bites');
   const ul = document.createElement('ul');
 
   const menuNames = ['Home', 'Menu', 'Contact'];

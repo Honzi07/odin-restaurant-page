@@ -1,3 +1,8 @@
+html {
+  background-image: url('../images/gummy-bear-background.jpg');
+  background-size: cover;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -6,13 +11,19 @@ body {
 
 #content {
   width: min(100%, 1440px);
-  background-color: beige;
+  /* background-color: beige; */
+  background-color: rgba(255, 183, 76, 0.5);
+  /* filter: blur(10px); */
+  backdrop-filter: blur(8px);
+  /* height: 100vh; */
+  padding: 2rem;
 }
 
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 nav {
@@ -20,12 +31,13 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  width: 50%;
+  /* width: 50%; */
 }
 
 nav ul {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   /* justify-content: space-around;
     margin-right: 22px; */
 }
@@ -33,6 +45,20 @@ nav ul {
 nav li {
   /* display: flex;
     flex-direction: row; */
+  cursor: pointer;
   list-style-type: none;
-  margin-right: 22px;
+  /* margin-right: 22px; */
+  transition-duration: 200ms;
+}
+
+nav li:not(:last-of-type) {
+  margin-right: 1.5rem;
+}
+
+nav li:hover {
+  color: white;
+}
+
+.test {
+  height: 100%;
 }
