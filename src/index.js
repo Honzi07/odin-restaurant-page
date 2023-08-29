@@ -4,9 +4,10 @@ import { createHeader } from './assets/components/header.js';
 import { createHomePage } from './assets/pages/home.js';
 import { createMenuPage } from './assets/pages/menu.js';
 import { createContactPage } from './assets/pages/contact.js';
-export { content, createHTMLelement };
+export { content, main, createHTMLelement };
 
 const content = document.querySelector('#content');
+const main = document.createElement('main');
 
 function createHTMLelement(tagName, className, content) {
   const element = document.createElement(tagName);
@@ -17,7 +18,8 @@ function createHTMLelement(tagName, className, content) {
 }
 
 createHeader();
-createHomePage();
+// createHomePage();
+createMenuPage();
 
 const navEl = document.querySelector('nav');
 
