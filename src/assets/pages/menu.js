@@ -1,7 +1,40 @@
-import { content, createHTMLelement } from '../../index.js';
+import { content, main, createHTMLelement } from '../../index.js';
 
 export function createMenuPage() {
   createMainCourses();
+}
+
+function createMainCourses() {
+  const mainItems = restaurantMenu.mainItems;
+  const mainDishContainer = createHTMLelement(
+    'div',
+    'main-dish-container',
+    undefined
+  );
+
+  for (const mainItem of mainItems) {
+    console.log(mainItem);
+
+    const mainName = createHTMLelement('div', 'main-name', mainItem.name);
+
+    const mainDesc = createHTMLelement(
+      'div',
+      'main-desc',
+      mainItem.description
+    );
+
+    const mainPrice = createHTMLelement('div', 'main-price', mainItem.price);
+
+    const mainDish = createHTMLelement('div', 'main-dish', undefined);
+
+    mainDishContainer.appendChild(mainDish);
+    mainDish.appendChild(mainName);
+    mainDish.appendChild(mainDesc);
+    mainDish.appendChild(mainPrice);
+  }
+
+  content.appendChild(main);
+  main.appendChild(mainDishContainer);
 }
 
 const restaurantMenu = {
