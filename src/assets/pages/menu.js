@@ -1,4 +1,4 @@
-import { content, main, createHTMLelement } from '../../index.js';
+import { content, createHTMLelement } from '../../index.js';
 
 export function createMenuPage() {
   createMainCourses();
@@ -6,6 +6,7 @@ export function createMenuPage() {
 
 function createMainCourses() {
   const mainItems = restaurantMenu.mainItems;
+  const main = document.createElement('main');
   const mainDishContainer = createHTMLelement(
     'div',
     'main-dish-container',
@@ -13,8 +14,6 @@ function createMainCourses() {
   );
 
   for (const mainItem of mainItems) {
-    console.log(mainItem);
-
     const mainName = createHTMLelement('div', 'main-name', mainItem.name);
 
     const mainDesc = createHTMLelement(
@@ -35,6 +34,10 @@ function createMainCourses() {
 
   content.appendChild(main);
   main.appendChild(mainDishContainer);
+}
+
+function createDrinks() {
+  const drinks = restaurantMenu.drinks;
 }
 
 const restaurantMenu = {
