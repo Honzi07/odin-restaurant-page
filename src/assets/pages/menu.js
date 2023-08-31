@@ -1,12 +1,14 @@
 import { content, createHTMLelement } from '../../index.js';
 
+const main = document.createElement('main');
+
 export function createMenuPage() {
   createMainCourses();
+  createDrinks();
 }
 
 function createMainCourses() {
   const mainItems = restaurantMenu.mainItems;
-  const main = document.createElement('main');
   const mainDishContainer = createHTMLelement(
     'div',
     'main-dish-container',
@@ -38,6 +40,29 @@ function createMainCourses() {
 
 function createDrinks() {
   const drinks = restaurantMenu.drinks;
+  const drinksContainer = createHTMLelement(
+    'div',
+    'drink-container',
+    undefined
+  );
+
+  for (const drink of drinks) {
+    const drinkName = createHTMLelement('div', 'drink-name', drink.name);
+
+    const drinkDesc = createHTMLelement('div', 'drink-desc', drink.description);
+
+    const drinkPrice = createHTMLelement('div', 'drink-price', drink.price);
+
+    const mainDrink = createHTMLelement('div', 'drink', undefined);
+
+    drinksContainer.appendChild(mainDrink);
+    mainDrink.appendChild(drinkName);
+    mainDrink.appendChild(drinkDesc);
+    mainDrink.appendChild(drinkPrice);
+  }
+
+  content.appendChild(main);
+  main.appendChild(drinksContainer);
 }
 
 const restaurantMenu = {
