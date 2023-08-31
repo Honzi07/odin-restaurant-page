@@ -10,10 +10,12 @@ export function createMenuPage() {
 function createMainCourses() {
   const mainItems = restaurantMenu.mainItems;
   const mainDishContainer = createHTMLelement(
-    'div',
+    'section',
     'main-dish-container',
     undefined
   );
+  const header = createHTMLelement('h2', undefined, 'Main Dishes');
+  mainDishContainer.appendChild(header);
 
   for (const mainItem of mainItems) {
     const mainName = createHTMLelement('div', 'main-name', mainItem.name);
@@ -41,10 +43,12 @@ function createMainCourses() {
 function createDrinks() {
   const drinks = restaurantMenu.drinks;
   const drinksContainer = createHTMLelement(
-    'div',
+    'section',
     'drink-container',
     undefined
   );
+  const header = createHTMLelement('h2', undefined, 'Drinks');
+  drinksContainer.appendChild(header);
 
   for (const drink of drinks) {
     const drinkName = createHTMLelement('div', 'drink-name', drink.name);
