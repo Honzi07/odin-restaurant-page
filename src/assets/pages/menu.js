@@ -1,8 +1,9 @@
 import { content, createHTMLelement } from '../../index.js';
 
-const main = document.createElement('main');
+const main = createHTMLelement('main', 'menu-main', undefined);
 
 export function createMenuPage() {
+  main.innerHTML = '';
   createMainCourses();
   createDrinks();
 }
