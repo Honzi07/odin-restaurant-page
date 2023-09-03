@@ -1,9 +1,36 @@
 import { content, createHTMLelement } from '../../index.js';
 
-export function createHomePage() {
-  const test = createHTMLelement('main', 'test', undefined);
-  const test2 = createHTMLelement('div', 'test2', 'Appending this div to main');
+const main = createHTMLelement('main', 'home-main', undefined);
 
-  content.appendChild(test);
-  test.appendChild(test2);
+export function createHomePage() {
+  main.innerHTML = '';
+
+  const imageContainer = createHTMLelement('div', 'image-container', undefined);
+  const img = document.createElement('img');
+  img.setAttribute('src', '/src/assets/images/home.jpeg');
+  img.setAttribute('alt', 'sweets on a plate');
+
+  const introContainer = createHTMLelement('div', 'intro-container', undefined);
+
+  const introHeading = createHTMLelement(
+    'h1',
+    'intro-heading',
+    'Vibrant gummy-inspired treats crafted daily with love.'
+  );
+
+  const introduction =
+    'Welcome to Rainbow Bear Bites, where gummy bears meet culinary magic. Dive into a world of playful, vibrant flavors and whimsy. Join us for a burst of joy in every bite!';
+
+  const introductionEl = createHTMLelement(
+    'div',
+    'intro-message',
+    introduction
+  );
+
+  content.appendChild(main);
+  main.appendChild(imageContainer);
+  imageContainer.appendChild(img);
+  main.appendChild(introContainer);
+  introContainer.appendChild(introHeading);
+  introContainer.appendChild(introductionEl);
 }
