@@ -27,10 +27,13 @@ export function createHomePage() {
     introduction
   );
 
+  const link = createHTMLelement('a', undefined, 'View Menu');
+
   content.appendChild(main);
   main.appendChild(imageContainer);
   imageContainer.appendChild(img);
   main.appendChild(introContainer);
   introContainer.appendChild(introHeading);
   introContainer.appendChild(introductionEl);
+  introContainer.appendChild(link);
 }
