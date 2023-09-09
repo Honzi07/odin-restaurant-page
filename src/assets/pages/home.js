@@ -1,4 +1,5 @@
 import { content, createHTMLelement } from '../../index.js';
+import homeImg from '../images/home.jpeg';
 
 const main = createHTMLelement('main', 'home-main', undefined);
 
@@ -7,7 +8,7 @@ export function createHomePage() {
 
   const imageContainer = createHTMLelement('div', 'image-container', undefined);
   const img = document.createElement('img');
-  img.setAttribute('src', '/src/assets/images/home.jpeg');
+  img.src = homeImg;
   img.setAttribute('alt', 'sweets on a plate');
 
   const introContainer = createHTMLelement('div', 'intro-container', undefined);
