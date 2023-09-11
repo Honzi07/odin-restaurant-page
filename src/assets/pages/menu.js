@@ -6,6 +6,7 @@ export function createMenuPage() {
   main.innerHTML = '';
   createMainCourses();
   createDrinks();
+  expandDish();
 }
 
 function createMainCourses() {
@@ -19,22 +20,21 @@ function createMainCourses() {
   mainDishContainer.appendChild(header);
 
   for (const mainItem of mainItems) {
-    const mainName = createHTMLelement('div', 'main-name', mainItem.name);
+    const mainName = createHTMLelement('div', 'name', mainItem.name);
 
-    const mainDesc = createHTMLelement(
-      'div',
-      'main-desc',
-      mainItem.description
-    );
+    const mainDesc = createHTMLelement('div', 'desc', mainItem.description);
 
-    const mainPrice = createHTMLelement('div', 'main-price', mainItem.price);
+    const mainPrice = createHTMLelement('div', 'price', mainItem.price);
 
-    const mainDish = createHTMLelement('div', 'main-dish', undefined);
+    const mainInfo = createHTMLelement('div', 'info-container', undefined);
+
+    const mainDish = createHTMLelement('div', 'menu-item', undefined);
 
     mainDishContainer.appendChild(mainDish);
-    mainDish.appendChild(mainName);
+    mainDish.appendChild(mainInfo);
+    mainInfo.appendChild(mainName);
     mainDish.appendChild(mainDesc);
-    mainDish.appendChild(mainPrice);
+    mainInfo.appendChild(mainPrice);
   }
 
   content.appendChild(main);
@@ -52,22 +52,35 @@ function createDrinks() {
   drinksContainer.appendChild(header);
 
   for (const drink of drinks) {
-    const drinkName = createHTMLelement('div', 'drink-name', drink.name);
+    const drinkName = createHTMLelement('div', 'name', drink.name);
 
-    const drinkDesc = createHTMLelement('div', 'drink-desc', drink.description);
+    const drinkDesc = createHTMLelement('div', 'desc', drink.description);
 
-    const drinkPrice = createHTMLelement('div', 'drink-price', drink.price);
+    const drinkPrice = createHTMLelement('div', 'price', drink.price);
 
-    const mainDrink = createHTMLelement('div', 'drink', undefined);
+    const drinkInfo = createHTMLelement('div', 'info-container', undefined);
+
+    const mainDrink = createHTMLelement('div', 'menu-item', undefined);
 
     drinksContainer.appendChild(mainDrink);
-    mainDrink.appendChild(drinkName);
+    mainDrink.appendChild(drinkInfo);
+    drinkInfo.appendChild(drinkName);
     mainDrink.appendChild(drinkDesc);
-    mainDrink.appendChild(drinkPrice);
+    drinkInfo.appendChild(drinkPrice);
   }
 
   content.appendChild(main);
   main.appendChild(drinksContainer);
+}
+
+function expandDish() {
+  const menuEl = document.querySelectorAll('section > div');
+
+  menuEl.forEach((el) =>
+    el.addEventListener('click', () => {
+      el.classList.toggle('expand');
+    })
+  );
 }
 
 const restaurantMenu = {
