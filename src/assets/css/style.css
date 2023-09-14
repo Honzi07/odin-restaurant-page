@@ -6,12 +6,16 @@
 :root {
   --heading-font: 'Montserrat', sans-serif;
   --normal-font: 'Open Sans', sans-serif;
+  --font-color: rgb(17, 17, 17);
+  --bg-color-dark: rgb(246, 246, 248);
+  --bg-color-light: rgb(255, 255, 255);
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--font-color);
 }
 
 #content {
@@ -21,7 +25,7 @@ body {
   /* filter: blur(10px); */
   backdrop-filter: blur(8px);
   /* height: 100vh; */
-  padding: 2rem;
+  /* padding: 2rem; */
   box-shadow: 0px 0px 20px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -30,6 +34,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 4rem;
+  padding: 2rem;
 }
 
 header h1 {
@@ -61,7 +66,7 @@ nav li {
   list-style-type: none;
   /* margin-right: 22px; */
   /* transition-duration: 200ms; */
-  transition-duration: 200ms;
+  transition: all 0.3s ease-out;
   text-decoration: underline;
 }
 
@@ -75,19 +80,29 @@ nav li:hover {
   /* transform: translateY(-4px); */
   /* text-shadow: 0px 6px 0px rgba(0, 0, 0, 0.2); */
   /* text-decoration: underline; */
-  text-decoration-color: #ffa45b;
+  text-decoration-color: rgb(210, 134, 72);
 }
 
-/* main {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 40px;
-} */
+main {
+  padding: 2rem;
+  background-color: var(--bg-color-dark);
+}
 
-.home-main {
+.home-main,
+.menu-main {
   display: flex;
   height: 100vh;
   gap: 2rem;
+}
+
+.menu-main {
+  justify-content: center;
+  gap: 8rem;
+}
+
+.main-dish-container,
+.drink-container {
+  width: min(600px, 100%);
 }
 
 .image-container {
@@ -132,24 +147,102 @@ h1,
 } */
 
 .intro-container a {
-  background-color: black;
+  background-color: var(--font-color);
   border-radius: 30px;
-  color: white;
+  color: var(--bg-color-light);
   padding: 1rem 3rem;
   margin-bottom: 2rem;
-  transition-duration: 100ms;
+  transition: all 0.3s ease-out;
   font-family: var(--normal-font);
   font-weight: 600;
 }
 .intro-container a:hover {
-  background-color: white;
-  outline: solid 2px black;
-  color: black;
+  background-color: var(--bg-color-dark);
+  outline: solid 2px var(--font-color);
+  color: var(--font-color);
   cursor: pointer;
+  /* padding: calc(1rem - 1px) calc(3rem - 1px); */
   /* border-radius: 30px;
   padding: 1rem 3rem;
   font-family: var(--normal-font);
   font-weight: 600; */
+}
+
+.menu-main h2 {
+  font-family: var(--heading-font);
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-color-light);
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 3rem 0;
+  max-height: 85px;
+  padding: 1rem;
+  transition: all 0.3s ease-out;
+  /* outline: solid red 1px; */
+  overflow: hidden;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden; */
+}
+
+/* .menu-item::after {
+  content: '▼';
+  position: absolute;
+  right: 1rem;
+  bottom: 3px;
+} */
+
+.menu-item::after {
+  content: '▼';
+  position: absolute;
+  right: 1rem;
+  bottom: 3px;
+  transition: all 0.3s linear;
+  /* transform: rotate(90deg); */
+}
+
+.menu-item.expand {
+  /* background-color: lime; */
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2);
+
+  max-height: 200px;
+  /* transition: all 0.3s ease-out; */
+}
+
+.menu-item.expand::after {
+  /* content: '▲'; */
+  transform: rotate(180deg);
+  /* transition: all 1.3s linear; */
+  position: absolute;
+  right: 1rem;
+  bottom: 3px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-family: var(--heading-font);
+  font-weight: 700;
+}
+
+.menu-item .desc {
+  font-family: var(--normal-font);
+  font-style: italic;
+  line-height: 25px;
+  padding-right: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-main {
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 425px) {
@@ -157,6 +250,10 @@ h1,
     flex-wrap: wrap;
     justify-content: center;
     align-content: start;
+  }
+
+  header h1 {
+    font-size: 11vw;
   }
 
   .image-container {
