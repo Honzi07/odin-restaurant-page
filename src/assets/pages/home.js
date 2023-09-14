@@ -1,5 +1,5 @@
 import { content, createHTMLelement } from '../../index.js';
-import homeImg from '../images/home.jpeg';
+import homeImg from '../images/home.png';
 
 const main = createHTMLelement('main', 'home-main', undefined);
 
