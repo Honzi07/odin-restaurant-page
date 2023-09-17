@@ -37,6 +37,12 @@ header {
   padding: 2rem;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+}
+
 header h1 {
   font-weight: 600;
 }
@@ -89,7 +95,8 @@ main {
 }
 
 .home-main,
-.menu-main {
+.menu-main,
+.contact-main {
   display: flex;
   height: 100vh;
   gap: 2rem;
@@ -98,6 +105,13 @@ main {
 .menu-main {
   justify-content: center;
   gap: 8rem;
+}
+
+.contact-main {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
 .main-dish-container,
@@ -239,9 +253,35 @@ h1,
   padding-right: 16px;
 }
 
+.contact-info-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-info-container div {
+  text-align: center;
+  flex: 1;
+  font-family: var(--normal-font);
+  /* font-size: 1.125rem; */
+  line-height: 1.6;
+  /* width: 100%; */
+}
+
+.contact-info-container p:first-of-type {
+  margin-top: 1rem;
+}
+
 @media only screen and (max-width: 768px) {
   .menu-main {
     flex-wrap: wrap;
+  }
+
+  .contact-info-container {
+    flex-wrap: wrap;
+  }
+
+  .contact-info-container div {
+    min-width: calc(100% / 3);
   }
 }
 
@@ -260,4 +300,18 @@ h1,
     max-width: 100%;
     order: 2;
   }
+
+  .contact-info-container {
+    flex-wrap: wrap;
+  }
+
+  .contact-info-container div {
+    min-width: 100%;
+  }
+
+  /* .contact-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  } */
 }
