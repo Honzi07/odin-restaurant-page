@@ -4,11 +4,51 @@ const main = createHTMLelement('main', 'contact-main', undefined);
 
 export function createContactPage() {
   main.innerHTML = '';
+  createContactForm();
+  createContactInfo();
+}
 
-  const heading = createHTMLelement('h2', 'contact-heading', 'Contact Us');
+function createContactForm() {
+  const form = document.createElement('form');
+  const fieldset = document.createElement('fieldset');
 
-  const contactInfosContainer = createHTMLelement(
-    'div',
+  const emailContainer = document.createElement('div');
+  const emailLabel = createHTMLelement('label', undefined, 'Email');
+  const emailInput = document.createElement('input');
+  emailInput.setAttribute('type', 'email');
+  emailInput.setAttribute('id', 'email');
+  emailInput.setAttribute('name', 'email');
+  emailInput.setAttribute('placeholder', 'Enter your email');
+  emailLabel.htmlFor = emailInput.id;
+
+  const nameContainer = document.createElement('div');
+  const nameLabel = createHTMLelement('label', undefined, 'Name');
+  const nameInput = document.createElement('input');
+  nameInput.setAttribute('type', 'text');
+  nameInput.setAttribute('id', 'name');
+  nameInput.setAttribute('name', 'name');
+  nameInput.setAttribute('placeholder', 'Enter your name');
+  nameLabel.htmlFor = nameInput.id;
+
+  const button = createHTMLelement('button', undefined, 'Submit');
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+  });
+
+  main.appendChild(form);
+  form.appendChild(fieldset);
+  fieldset.appendChild(emailContainer);
+  emailContainer.appendChild(emailLabel);
+  emailContainer.appendChild(emailInput);
+  fieldset.appendChild(nameContainer);
+  nameContainer.appendChild(nameLabel);
+  nameContainer.appendChild(nameInput);
+  form.appendChild(button);
+}
+
+function createContactInfo() {
+  const contactInfoContainer = createHTMLelement(
+    'section',
     'contact-info-container',
     undefined
   );
@@ -38,19 +78,18 @@ export function createContactPage() {
   const contact3Content2 = createHTMLelement('p', undefined, '2 (345) 333-897');
 
   content.appendChild(main);
-  main.appendChild(heading);
 
-  main.appendChild(contactInfosContainer);
+  main.appendChild(contactInfoContainer);
 
-  contactInfosContainer.appendChild(contact1);
+  contactInfoContainer.appendChild(contact1);
   contact1.appendChild(contact1Heading);
   contact1.appendChild(contact1Content);
 
-  contactInfosContainer.appendChild(contact2);
+  contactInfoContainer.appendChild(contact2);
   contact2.appendChild(contact2Heading);
   contact2.appendChild(contact2Content);
 
-  contactInfosContainer.appendChild(contact3);
+  contactInfoContainer.appendChild(contact3);
   contact3.appendChild(contact3Heading);
   contact3.appendChild(contact3Content);
   contact3.appendChild(contact3Content2);
