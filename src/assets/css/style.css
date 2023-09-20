@@ -1,8 +1,3 @@
-/* html {
-  background-image: url('../images/gummy-bear-background.jpg');
-  background-size: cover;
-} */
-
 :root {
   --heading-font: 'Montserrat', sans-serif;
   --normal-font: 'Open Sans', sans-serif;
@@ -20,12 +15,7 @@ body {
 
 #content {
   width: min(100%, 1440px);
-  /* background-color: beige; */
-  /* background-color: rgba(255, 183, 76, 0.5); */
-  /* filter: blur(10px); */
   backdrop-filter: blur(8px);
-  /* height: 100vh; */
-  /* padding: 2rem; */
   box-shadow: 0px 0px 20px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -52,26 +42,19 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  /* width: 50%; */
 }
 
 nav ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* justify-content: space-around;
-    margin-right: 22px; */
 }
 
 nav li {
   font-family: var(--heading-font);
   font-weight: 600;
-  /* display: flex;
-    flex-direction: row; */
   cursor: pointer;
   list-style-type: none;
-  /* margin-right: 22px; */
-  /* transition-duration: 200ms; */
   transition: all 0.3s ease-out;
   text-decoration: underline;
 }
@@ -81,11 +64,7 @@ nav li:not(:last-of-type) {
 }
 
 nav li:hover {
-  /* color: white; */
   scale: 1.08;
-  /* transform: translateY(-4px); */
-  /* text-shadow: 0px 6px 0px rgba(0, 0, 0, 0.2); */
-  /* text-decoration: underline; */
   text-decoration-color: rgb(210, 134, 72);
 }
 
@@ -99,7 +78,6 @@ main {
 .contact-main {
   display: flex;
   height: 100vh;
-  /* gap: 2rem; */
 }
 
 .home-main {
@@ -112,7 +90,6 @@ main {
 }
 
 .contact-main {
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
   gap: 6rem;
@@ -124,9 +101,7 @@ main {
 }
 
 .image-container {
-  /* max-width: 50%; */
   width: clamp(300px, 50%, 500px);
-  /* width: min(180px, 100%); */
 }
 
 .intro-container {
@@ -152,19 +127,10 @@ h1,
 
 .intro-heading,
 .intro-message {
-  /* font-family: ; */
   max-width: 45ch;
   width: min(45ch, 100%);
   text-align: center;
 }
-
-/* .intro-heading {
-  max-width: 70%;
-} */
-
-/* main section {
-  max-width: 50ch;
-} */
 
 .intro-container a {
   background-color: var(--font-color);
@@ -181,11 +147,6 @@ h1,
   outline: solid 2px var(--font-color);
   color: var(--font-color);
   cursor: pointer;
-  /* padding: calc(1rem - 1px) calc(3rem - 1px); */
-  /* border-radius: 30px;
-  padding: 1rem 3rem;
-  font-family: var(--normal-font);
-  font-weight: 600; */
 }
 
 .menu-main h2 {
@@ -198,30 +159,17 @@ h1,
   position: relative;
   background-color: var(--bg-color-light);
   border: 5px ridge rgba(0, 0, 0, 0.1);
-  /* box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2); */
   cursor: pointer;
   margin: 3rem 0;
   max-height: 90px;
   padding: 1rem;
   transition: all 0.3s ease-out;
-  /* outline: solid red 1px; */
   overflow: hidden;
-  /* display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden; */
 }
 
 .menu-item:first-of-type {
   margin-top: 1.5rem;
 }
-
-/* .menu-item::after {
-  content: '▼';
-  position: absolute;
-  right: 1rem;
-  bottom: 3px;
-} */
 
 .menu-item:hover {
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2);
@@ -233,20 +181,15 @@ h1,
   right: 1rem;
   bottom: 3px;
   transition: all 0.3s linear;
-  /* transform: rotate(90deg); */
 }
 
 .menu-item.expand {
-  /* background-color: lime; */
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2);
   max-height: 250px;
-  /* transition: all 0.3s ease-out; */
 }
 
 .menu-item.expand::after {
-  /* content: '▲'; */
   transform: rotate(180deg);
-  /* transition: all 1.3s linear; */
   position: absolute;
   right: 1rem;
   bottom: 3px;
@@ -277,7 +220,6 @@ form {
 
 fieldset {
   display: flex;
-  /* flex-wrap: wrap; */
   border: 0;
   padding: 0;
   gap: 2rem;
@@ -287,17 +229,10 @@ fieldset > div {
   width: 50%;
 }
 
-/* legend {
-  overflow:hidden;
-  height:0;
-  width:0;
-} */
-
 input {
   border: solid 1px rgb(179, 179, 179);
   border-radius: 30px;
   padding: 10px 12px;
-  /* outline: solid 1px; */
   width: 100%;
 }
 
@@ -333,9 +268,7 @@ button:hover {
   text-align: center;
   flex: 1;
   font-family: var(--normal-font);
-  /* font-size: 1.125rem; */
   line-height: 1.6;
-  /* width: 100%; */
 }
 
 .contact-info-container h3 {
@@ -354,7 +287,6 @@ button:hover {
   }
 
   .image-container {
-    /* max-width: 60%; */
     order: 2;
   }
 
@@ -380,19 +312,8 @@ button:hover {
 }
 
 @media only screen and (max-width: 425px) {
-  /* .home-main {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: start;
-  } */
-
   header h1 {
     font-size: 11vw;
-  }
-
-  .image-container {
-    /* max-width: 100%; */
-    /* order: 2; */
   }
 
   .contact-info-container {
@@ -406,10 +327,4 @@ button:hover {
   form {
     width: 100%;
   }
-
-  /* .contact-info-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  } */
 }
